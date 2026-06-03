@@ -1,5 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using LibraryAppApi.Enums;
 
 namespace LibraryAppApi.Models
 {
@@ -22,9 +23,8 @@ namespace LibraryAppApi.Models
 
         public DateTime? ReturnDate { get; set; }
 
-        // E.g., 0 = Active, 1 = Returned, 2 = Overdue, 3 = Lost
         [Required]
-        public int TransactionStatus { get; set; } = 0;
+        public TransactionStatus TransactionStatus { get; set; } = TransactionStatus.Active;
 
         // Navigation Properties
         [ForeignKey("UserId")]
