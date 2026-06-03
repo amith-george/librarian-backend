@@ -16,10 +16,6 @@ namespace LibraryAppApi.Models
         [MaxLength(255)]
         public string Author { get; set; } = string.Empty;
 
-        [Required]
-        [MaxLength(20)]
-        public string ISBN { get; set; } = string.Empty;
-
         public string? Description { get; set; }
         public string? ImageUrl { get; set; }
 

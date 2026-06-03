@@ -1,4 +1,6 @@
 using System.ComponentModel.DataAnnotations;
+using System.Collections.Generic;
+using LibraryAppApi.Enums;
 
 namespace LibraryAppApi.Models
 {
@@ -19,12 +21,11 @@ namespace LibraryAppApi.Models
         public string PasswordHash { get; set; } = string.Empty;
 
         [Required]
-        public string Role { get; set; } = "Member"; 
+        public UserRole Role { get; set; } = UserRole.Member; 
 
         public bool IsActive { get; set; } = true;
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
 
-        // Navigation Property: Updated to Transaction
         public virtual ICollection<Transaction> Transactions { get; set; } = new List<Transaction>();
     }
 }
