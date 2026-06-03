@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "D:\\LibraryManagement\\LearningManagementApi\\LearningManagementApi.csproj": {}
+    "D:\\librarian-backend\\LearningManagementApi.csproj": {}
   },
   "projects": {
-    "D:\\LibraryManagement\\LearningManagementApi\\LearningManagementApi.csproj": {
+    "D:\\librarian-backend\\LearningManagementApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\LibraryManagement\\LearningManagementApi\\LearningManagementApi.csproj",
+        "projectUniqueName": "D:\\librarian-backend\\LearningManagementApi.csproj",
         "projectName": "LearningManagementApi",
-        "projectPath": "D:\\LibraryManagement\\LearningManagementApi\\LearningManagementApi.csproj",
-        "packagesPath": "C:\\Users\\Amith.George\\.nuget\\packages\\",
-        "outputPath": "D:\\LibraryManagement\\LearningManagementApi\\obj\\",
+        "projectPath": "D:\\librarian-backend\\LearningManagementApi.csproj",
+        "packagesPath": "C:\\Users\\athul.das\\.nuget\\packages\\",
+        "outputPath": "D:\\librarian-backend\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Amith.George\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\athul.das\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -99,7 +99,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.421/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
