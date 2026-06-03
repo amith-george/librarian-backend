@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "D:\\librarian-backend\\LearningManagementApi.csproj": {}
+    "D:\\LibraryManagement\\librarian-backend\\LearningManagementApi.csproj": {}
   },
   "projects": {
-    "D:\\librarian-backend\\LearningManagementApi.csproj": {
+    "D:\\LibraryManagement\\librarian-backend\\LearningManagementApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\librarian-backend\\LearningManagementApi.csproj",
+        "projectUniqueName": "D:\\LibraryManagement\\librarian-backend\\LearningManagementApi.csproj",
         "projectName": "LearningManagementApi",
-        "projectPath": "D:\\librarian-backend\\LearningManagementApi.csproj",
-        "packagesPath": "C:\\Users\\athul.das\\.nuget\\packages\\",
-        "outputPath": "D:\\librarian-backend\\obj\\",
+        "projectPath": "D:\\LibraryManagement\\librarian-backend\\LearningManagementApi.csproj",
+        "packagesPath": "C:\\Users\\Amith.George\\.nuget\\packages\\",
+        "outputPath": "D:\\LibraryManagement\\librarian-backend\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\athul.das\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Amith.George\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -49,6 +49,10 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "BCrypt.Net-Next": {
+              "target": "Package",
+              "version": "[4.2.0, )"
+            },
             "Microsoft.AspNetCore.Authentication.JwtBearer": {
               "target": "Package",
               "version": "[8.0.8, )"
@@ -103,7 +107,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.421/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
