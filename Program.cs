@@ -5,17 +5,22 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens; 
 using Microsoft.OpenApi.Models; 
 using System.Text; 
+using DotNetEnv; // 1. ADDED: Using statement for DotNetEnv
 
 var builder = WebApplication.CreateBuilder(args);
 
+// 2. ADDED: Load the .env file and inject variables into the Configuration
+Env.Load();
+builder.Configuration.AddEnvironmentVariables();
+
 builder.Services.AddControllers(); 
 
-// 1. REGISTER YOUR CUSTOM SERVICES
+// REGISTER YOUR CUSTOM SERVICES
 builder.Services.AddScoped<JwtService>();
 
 builder.Services.AddEndpointsApiExplorer();
 
-// 2. CONFIGURE SWAGGER TO ACCEPT JWT TOKENS
+// CONFIGURE SWAGGER TO ACCEPT JWT TOKENS
 builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new OpenApiInfo { Title = "Library API", Version = "v1" });
@@ -52,7 +57,7 @@ var connectionString = builder.Configuration.GetConnectionString("DefaultConnect
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
 
-// 3. CONFIGURE JWT AUTHENTICATION
+// CONFIGURE JWT AUTHENTICATION
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
     {
@@ -64,6 +69,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             ValidateIssuerSigningKey = true,
             ValidIssuer = builder.Configuration["Jwt:Issuer"],
             ValidAudience = builder.Configuration["Jwt:Audience"],
+            // Safely pulling the JWT Key from your .env file
             IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]!))
         };
     });
@@ -91,7 +97,7 @@ app.UseHttpsRedirection();
 
 app.UseCors("AllowFrontend");
 
-// 4. ADD AUTHENTICATION & AUTHORIZATION TO THE PIPELINE
+// ADD AUTHENTICATION & AUTHORIZATION TO THE PIPELINE
 // VERY IMPORTANT: Authentication must come BEFORE Authorization
 app.UseAuthentication(); 
 app.UseAuthorization();
