@@ -1,10 +1,10 @@
 using LibraryAppApi.Data;
-using LibraryAppApi.Services; 
-using Microsoft.AspNetCore.Authentication.JwtBearer; 
+using LibraryAppApi.Services;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.IdentityModel.Tokens; 
-using Microsoft.OpenApi.Models; 
-using System.Text; 
+using Microsoft.IdentityModel.Tokens;
+using Microsoft.OpenApi.Models;
+using System.Text;
 using DotNetEnv; // 1. ADDED: Using statement for DotNetEnv
 
 var builder = WebApplication.CreateBuilder(args);
@@ -13,7 +13,7 @@ var builder = WebApplication.CreateBuilder(args);
 Env.Load();
 builder.Configuration.AddEnvironmentVariables();
 
-builder.Services.AddControllers(); 
+builder.Services.AddControllers();
 
 // REGISTER YOUR CUSTOM SERVICES
 builder.Services.AddScoped<JwtService>();
@@ -75,15 +75,20 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     });
 
 // Configure CORS
+var builder1 = WebApplication.CreateBuilder(args);
+
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowFrontend", policy =>
-    {
-        policy.WithOrigins("http://localhost:4200")
-              .AllowAnyHeader()
-              .AllowAnyMethod();
-    });
+    options.AddPolicy("AllowFrontend",
+        policy =>
+        {
+            policy
+                .WithOrigins("http://localhost:8080")
+                .AllowAnyHeader()
+                .AllowAnyMethod();
+        });
 });
+
 
 var app = builder.Build();
 
@@ -99,9 +104,13 @@ app.UseCors("AllowFrontend");
 
 // ADD AUTHENTICATION & AUTHORIZATION TO THE PIPELINE
 // VERY IMPORTANT: Authentication must come BEFORE Authorization
-app.UseAuthentication(); 
+app.UseAuthentication();
 app.UseAuthorization();
 
-app.MapControllers(); 
-
+app.MapControllers();
+using (var scope = app.Services.CreateScope())
+{
+    var db = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+    db.Database.Migrate();
+}
 app.Run();
