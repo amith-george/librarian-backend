@@ -2,6 +2,12 @@
 
 An optimized .NET 8 Web API for managing book tracking, paginated browsing, and high-performance NgRx autocomplete lookups.
 
+> TEAM MEMBERS
+> + Athul Das
+> + Nived N Raj
+> + Amith George Mampilly
+> + Amarnath T V
+
 > ⚠️ **CRITICAL:** Check the **`release`** branch for the Long-Term Support (LTS) version.
 
 ## Steps to Run Using Docker
